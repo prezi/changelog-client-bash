@@ -1,9 +1,4 @@
 #!/bin/bash
-curl=${CHANGELOG_CURL:-curl}  # Useful if you have a curl wrapper doing your authentication
-endpoint=${CHANGELOG_ENDPOINT}
-category=${CHANGELOG_DEFAULT_CATEGORY:-misc}
-criticality=${CHANGELOG_DEFAULT_CRITICALITY:-3}
-
 abort() {
     echo "$*"
     exit 1
@@ -48,6 +43,11 @@ EOF
     exit
 }
 
+curl=${CHANGELOG_CURL:-curl}  # Useful if you have a curl wrapper doing your authentication
+endpoint=${CHANGELOG_ENDPOINT}
+category=${CHANGELOG_DEFAULT_CATEGORY:-misc}
+criticality=${CHANGELOG_DEFAULT_CRITICALITY:-3}
+
 while getopts c:s:h opt; do
     case ${opt} in
     c) category=$OPTARG ;;
@@ -57,7 +57,6 @@ while getopts c:s:h opt; do
 done
 shift $(($OPTIND - 1))
 description="$*"
-
 
 [ -z "${endpoint}" ] && abort "Please specify the Changelog API endpoint in the env variable CHANGELOG_ENDPOINT. It'll probably end with /api/events."
 [ -z "${description}" ] && abort "No message specified."
