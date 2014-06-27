@@ -1,0 +1,33 @@
+Usage: ./changelog.sh [OPTIONS] message
+Send an event to an Changelog (https://github.com/prezi/changelog) server.
+
+Example: ./changelog.sh -s5 Manually restarting all app servers.
+
+Idea: Create a symlink pointing to this script somewhere on your path.
+      Call it "clog".
+
+Options:
+ -c  Category. Default: 'misc'
+ -s  Criticality (mnemonic: severity). Default: 3
+ -h  Displays this text
+
+
+Environment variables:
+
+CHANGELOG_ENDPOINT
+  Default: none, required
+  The URL of your Changelog installation, including '/api/events'.
+
+CHANGELOG_CURL
+  Default: curl
+  The command to use for sending the request to the Changelog API.
+  Must support the -X, -H and -h switches of curl.
+  Use-case: set it to a curl wrapper that takes care of authentication.
+
+CHANGELOG_DEFAULT_CATEGORY
+  Default: misc
+  The category sent to Changelog, unless specified with -c.
+
+CHANGELOG_DEFAULT_CRITICALITY
+  Default: 3
+  The criticality sent to Changelog, unless specified with -s.
