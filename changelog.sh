@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 curl=${CHANGELOG_CURL:-curl}  # Useful if you have a curl wrapper doing your authentication
 endpoint=${CHANGELOG_ENDPOINT}
 category=${CHANGELOG_DEFAULT_CATEGORY:-misc}
