@@ -1,5 +1,5 @@
 Usage: ./changelog.sh [OPTIONS] message
-Send an event to an Changelog (https://github.com/prezi/changelog) server.
+Send an event to a Changelog (https://github.com/prezi/changelog) server.
 
 Example: ./changelog.sh -s5 Manually restarting all app servers.
 

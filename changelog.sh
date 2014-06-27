@@ -12,7 +12,7 @@ abort() {
 help() {
     cat <<EOF
 Usage: $0 [OPTIONS] message
-Send an event to an Changelog (https://github.com/prezi/changelog) server.
+Send an event to a Changelog (https://github.com/prezi/changelog) server.
 
 Example: $0 -s5 Manually restarting all app servers.
 
